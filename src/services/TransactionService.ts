@@ -7,6 +7,7 @@ const prisma = new PrismaClient()
 export default new class TransactionService {
     private readonly TransactionRepo = prisma.tb_transaction
     private readonly WalletRepo = prisma.tb_wallet
+    private readonly CategoryRepo = prisma.tb_category
 
     async addTransaction(req: Request, res: Response): Promise<Response> {
         try{
@@ -23,12 +24,19 @@ export default new class TransactionService {
 
             if(!thisWallet) return res.status(400).json({ message: "Wallet not found!" })
 
+            const thisCategory = await this.CategoryRepo.findUnique({
+                where: { category: body.category }
+            })
+
+            if(!thisCategory) return res.status(400).json({ message: "Category not found!" })
+
             const newTransaction = await this.TransactionRepo.create({
                 data: {
                     amount: body.amount,
                     date: body.date,
-                    category: body.category,
+                    category: thisCategory.category,
                     note: body.note,
+                    category_image: thisCategory.image,
                     user_id: id,
                     created_at: new Date()
                 }
@@ -36,10 +44,11 @@ export default new class TransactionService {
 
             const in_flow = thisWallet.in_flow + body.amount
             const out_flow = thisWallet.out_flow + body.amount
-            let balance = parseInt('')
-            let updatedWallet: any = ''
+            let balance: number
 
-            if(body.category === "income") {
+            let updatedWallet: any
+
+            if(thisCategory?.category === "Sallary" || thisCategory?.category === "Sales") {
                 balance = thisWallet.balance + body.amount
 
                 const updateWallet = await this.WalletRepo.update({
@@ -68,6 +77,21 @@ export default new class TransactionService {
             }
 
             return res.status(201).json({ newTransaction, updatedWallet })
+        }catch(err) {
+            return res.status(500).json(err)
+        }
+    }
+
+    async findTransactionByUser(req: Request, res: Response) {
+        try{
+            const tokenDecode = res.locals.loginSession.tokenPayload
+            const user_id = tokenDecode.id
+
+            const thisTransaction = await this.TransactionRepo.findMany({
+                where: { user_id: user_id}
+            })
+
+            return res.status(201).json(thisTransaction)
         }catch(err) {
             return res.status(500).json(err)
         }

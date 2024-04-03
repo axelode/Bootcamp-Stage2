@@ -5,4 +5,8 @@ export default new class TransactionController {
     addTransaction(req: Request, res: Response) {
         TransactionService.addTransaction(req, res)
     }
+
+    findTransactionByUser(req: Request, res: Response) {
+        TransactionService.findTransactionByUser(req, res)
+    }
 }

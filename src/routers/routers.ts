@@ -12,6 +12,8 @@ router.post("/login", UserController.login)
 
 router.post("/addTransaction", AuthMiddleware.auth, TransactionController.addTransaction)
 
+router.get("/findTransactionByUser", AuthMiddleware.auth, TransactionController.findTransactionByUser)
+
 router.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 export default router

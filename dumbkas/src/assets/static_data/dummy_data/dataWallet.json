@@ -1,0 +1,20 @@
+[
+    {
+        "id" : 1,
+        "title" : "Inflow",
+        "saldo" : "5.000.000,00",
+        "image" : "https://s3-alpha-sig.figma.com/img/afed/4a2c/1a1d5e59d03a75ec34ffb626af7355b8?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T2mOTC2rb98PHwNkpcvsVbMTPZFkZ3CYlnHIY3wLdEAQoZhOKh4Ro4iKdeaKyG~OXQReLhuZQlDIPMpfxZbXhM9MtS7gMO68k~HdhiM-O5dTALgooK54KZbdvWZOeoBxasTyxdRAITyLkbUsbGGUmGVPAM1LO5ft4QFFfQnJqZ6Uh-eYDC~zAeXAX~8mfbC~otGI5t4D5KmbWIMkW40B9yQn6lirBrgqbzAz5l3yjlMbJyrN9zGjmVbGxDLaEsDi1U9eiqrl9mjfyrNIFoPA5QJ3CrcBb99-i-xy5mjJ9-IX-Ezd~xw4jp6NvZVHOaJmVdcNC0M7bOyBfoCOJnhnuw__"
+    },
+    {
+        "id" : 2,
+        "title" : "Outflow",
+        "saldo" : "306.000,00",
+        "image" : "https://s3-alpha-sig.figma.com/img/6203/97a5/e07f0df5dcb6320e5d64c6fc43b6438f?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=d-dk0GGMO3ZMBBzN7IMrvmzB2p4CuHhK1hoHPpnSuvQpJ~MpA1LxR1nVAP73usAg9MklA65inrk9QOKTvrsDErZqHp86ufzsW89PlltS8F~ThR5fSzaIS7INBc5KRnEusypQzxhvRVxIHbxI93roQ317ON2wakoCFBno2Mpf4cQU-DXuPv4iPral8pUODFgecLLKWXhMObOqmAY-V0Rv5a1-lPTe5r0twUcPhJ7F0bRmuN6zOFqbfRMVgM~z9Z0gCuhXUnf6rNyLXrRXAW-DPk6tTE-6G8XN7keqVRaFVhH98Ha-L1xR9WKDEjrtJ9~8kvAiT6jeu1EbRmnHAfBviw__"
+    },
+    {
+        "id" : 3,
+        "title" : "Balance",
+        "saldo" : "4.694.000,00",
+        "image" : "https://s3-alpha-sig.figma.com/img/afed/4a2c/1a1d5e59d03a75ec34ffb626af7355b8?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T2mOTC2rb98PHwNkpcvsVbMTPZFkZ3CYlnHIY3wLdEAQoZhOKh4Ro4iKdeaKyG~OXQReLhuZQlDIPMpfxZbXhM9MtS7gMO68k~HdhiM-O5dTALgooK54KZbdvWZOeoBxasTyxdRAITyLkbUsbGGUmGVPAM1LO5ft4QFFfQnJqZ6Uh-eYDC~zAeXAX~8mfbC~otGI5t4D5KmbWIMkW40B9yQn6lirBrgqbzAz5l3yjlMbJyrN9zGjmVbGxDLaEsDi1U9eiqrl9mjfyrNIFoPA5QJ3CrcBb99-i-xy5mjJ9-IX-Ezd~xw4jp6NvZVHOaJmVdcNC0M7bOyBfoCOJnhnuw__"
+    }
+]

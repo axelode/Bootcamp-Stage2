@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "image" : "https://s3-alpha-sig.figma.com/img/9ef1/f8ee/d24475f6dc3875587470b1f877410c81?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Pl7yILQraxJDpt~DGrZNpZxx8oti2CPVfGYiI0HoWvN5JGKkbOpm0H7V6HA-LWjtO5hDvOkd4UPS1buVWt0XL0lK~MpLEpmEFpSk~9rGWkLoOF6OC9bVXaDQGJJupOpKgywAraa9TmpC8L1RISeSVm6ZWjRQANKwt~98QLvBWrfyM-5Sv3hOz2B28AlGgp8faLx2nyrcopVaa-tXhMuEpCmQdKYEUJLtY-Afh1Qh8GimG4aQZMwdZzyNvcT362BSXjavpzbAW63mCumujPxbWw7MhF7YESsIGgnbKTcz20SLaZVbdgXUEeXCkw59GjwcgEJZ-PC79Dsd91fm3fqzEQ__",
+        "title" : "100% secured data"
+    },
+    {
+        "id" : 2,
+        "image" : "https://s3-alpha-sig.figma.com/img/9581/106b/8ad0a91e1fe709e76df5a5953b358cc9?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ddvIIN1AZQnOMm2M0A2TTLKmRqgFIcMDxtefOLdYSnWho1GCAevYvVZwrVwLG6V5y29HdX~mlSm6W7RtfAVGTPAPc7vI7ld6qh~xEKXoCa9Edhn-dc99vI33pwbaT9IU31RHGZLXP1Glcf75LVQqazmwVPc0fj6gm84cPn64C6hn4iZLJjutJoelO-D2UUZu88IVWSI10fKBaQRdCAPqkEk7O0ZS9JFyDtRqJ5yYMLR2gkHHJ12HXltpbbyCwh3S4Yh8GK0nOmHLrSoc1upyWoG1SQmiE-zNPU~1OA8JuLke0Vt8UElVbdxv~n77psuKwh7-z-rmBOu0JC5ej7yzVQ__",
+        "title" : "Trusted by users"
+    },
+    {
+        "id" : 3,
+        "image" : "https://s3-alpha-sig.figma.com/img/e7cb/9d9f/0383138e06e68c3ba675c3320ad42c61?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lPrdOxHoX-2aNLTYpL3baThQ0hjty~I99UeIzMKgYDfRf7Mlfcigt16og9S0F6kg5xS0gsy8L47o~SLm~ILTi1nJIzqDYXvzqa47APGJpHFxhUoIwrci5NCWt8YPWt~TGhaDSengnW0Ehac7mlIiDlcExL-8UVo0mrXxdQueGGYARE-SbGRsJnQxuf2HfnQyEWL0kzWmn4~3UWnV8Bji5Cjr7szv2yJ~DrFMPptWdey0BYSWft3R5EdQMtUR3BUHqMWafIDCmdAY4n9dirxeBA7fXIGEOyE8DlkdQ0GyUFmB9SjSut2FiTWRQeRQxFPWkLWr8VWjDyq5yz3pbjnX7Q__",
+        "title" : "Easy to use"
+    },
+    {
+        "id" : 4,
+        "image" : "https://s3-alpha-sig.figma.com/img/5897/5dec/437d6e38e4df81f31fe31b6b03254b53?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fEQXw9YXcVFlSvdD2TeogZ4h~Oo6l5PbMwgZafo3rGJAvZabdUC~s99pH5isMdyXFyEgERU1edt0u0hI-HureaPlnups22ejP-6xCXjBsw2YFqyUt0akG5CTQNRSa-r3k1lq~ulFrqr9L3AgfADLk0nYcBfWdB26VvLRI5vmc4yoeE9G0GuYKRex2EmaThsjj6AauO5z08EFEZT2IpUsOPJTmP89hZo-jv3pBp~K9fR9fJ6fkEU6QQRyuYxd3OAy~hOCEMc08xRjlcGDxSewQqBQbic7ndIw-BRFg2Pm9jMn2Tn-U-FnACncaMni8qzd8eDLoxsH2vapSX7gQ4x6Rg__",
+        "title" : "App of the day"
+    }
+]

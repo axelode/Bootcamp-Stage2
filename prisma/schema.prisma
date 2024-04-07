@@ -20,6 +20,7 @@ model Tb_user {
   full_name  String
   wallet Tb_wallet[]
   transaction Tb_transaction[]
+  category Tb_category[]
 }
 
 model Tb_wallet {
@@ -31,21 +32,24 @@ model Tb_wallet {
   user_id Int @unique
 }
 
+model Tb_category {
+  id Int @id @default(autoincrement())
+  category_name String @unique
+  type String
+  image String
+  user Tb_user @relation(fields: [user_id], references: [id])
+  user_id Int
+  transaction Tb_transaction[]
+}
+
 model Tb_transaction {
   id Int @id @default(autoincrement())
   amount Int
   date DateTime
+  category_detail Tb_category @relation(fields: [category], references: [category_name])
   category String
-  category_image String
   note String
   user Tb_user @relation(fields: [user_id], references: [id])
   user_id Int
   created_at DateTime
-}
-
-model Tb_category {
-  id Int @id @default(autoincrement())
-  category String @unique
-  type String
-  image String
 }

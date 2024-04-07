@@ -6,7 +6,7 @@ export default new class TransactionController {
         TransactionService.addTransaction(req, res)
     }
 
-    findTransactionByUser(req: Request, res: Response) {
-        TransactionService.findTransactionByUser(req, res)
+    findTransactionByUserId(req: Request, res: Response) {
+        TransactionService.findTransactionByUserId(req, res)
     }
 }

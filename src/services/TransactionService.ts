@@ -25,7 +25,7 @@ export default new class TransactionService {
             if(!thisWallet) return res.status(400).json({ message: "Wallet not found!" })
 
             const thisCategory = await this.CategoryRepo.findUnique({
-                where: { category: body.category }
+                where: { category_name: body.category }
             })
 
             if(!thisCategory) return res.status(400).json({ message: "Category not found!" })
@@ -34,9 +34,8 @@ export default new class TransactionService {
                 data: {
                     amount: body.amount,
                     date: body.date,
-                    category: thisCategory.category,
+                    category: body.category,
                     note: body.note,
-                    category_image: thisCategory.image,
                     user_id: id,
                     created_at: new Date()
                 }
@@ -48,7 +47,7 @@ export default new class TransactionService {
 
             let updatedWallet: any
 
-            if(thisCategory?.category === "Sallary" || thisCategory?.category === "Sales") {
+            if(thisCategory?.type === "Income") {
                 balance = thisWallet.balance + body.amount
 
                 const updateWallet = await this.WalletRepo.update({
@@ -82,13 +81,16 @@ export default new class TransactionService {
         }
     }
 
-    async findTransactionByUser(req: Request, res: Response) {
+    async findTransactionByUserId(req: Request, res: Response) {
         try{
             const tokenDecode = res.locals.loginSession.tokenPayload
             const user_id = tokenDecode.id
 
             const thisTransaction = await this.TransactionRepo.findMany({
-                where: { user_id: user_id}
+                where: { user_id: user_id},
+                include: {
+                    category_detail: true
+                }
             })
 
             return res.status(201).json(thisTransaction)

@@ -1,5 +1,8 @@
 import UserController from "../controllers/UserController"
 import TransactionController from "../controllers/TransactionController"
+import CategoryController from "../controllers/CategoryController"
+import WalletController from "../controllers/WalletController"
+
 import * as express from "express"
 import upload from "../middlewares/UploadMiddleware"
 import AuthMiddleware from "../middlewares/AuthMiddleware"
@@ -7,12 +10,22 @@ import path from "path"
 
 const router = express.Router()
 
-router.post("/register", upload.single('image'), UserController.register)
+// user
+router.post("/register", UserController.register)
 router.post("/login", UserController.login)
 
+// transaction
 router.post("/addTransaction", AuthMiddleware.auth, TransactionController.addTransaction)
 
-router.get("/findTransactionByUser", AuthMiddleware.auth, TransactionController.findTransactionByUser)
+router.get("/findTransactionByUserId", AuthMiddleware.auth, TransactionController.findTransactionByUserId)
+
+// category
+router.post("/addCategory", AuthMiddleware.auth, upload.single('image'), CategoryController.addCategory)
+
+router.get("/findCategoryByUserId", AuthMiddleware.auth, CategoryController.findCategoryByUserId)
+
+// wallet
+router.get("/findWalletById", AuthMiddleware.auth, WalletController.findWalletById)
 
 router.use("/uploads", express.static(path.join(__dirname, "uploads")))
 

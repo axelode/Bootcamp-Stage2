@@ -1,0 +1,143 @@
+{
+    "data_feature" : [
+        {
+            "id" : 1,
+            "image" : "https://s3-alpha-sig.figma.com/img/9ef1/f8ee/d24475f6dc3875587470b1f877410c81?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Pl7yILQraxJDpt~DGrZNpZxx8oti2CPVfGYiI0HoWvN5JGKkbOpm0H7V6HA-LWjtO5hDvOkd4UPS1buVWt0XL0lK~MpLEpmEFpSk~9rGWkLoOF6OC9bVXaDQGJJupOpKgywAraa9TmpC8L1RISeSVm6ZWjRQANKwt~98QLvBWrfyM-5Sv3hOz2B28AlGgp8faLx2nyrcopVaa-tXhMuEpCmQdKYEUJLtY-Afh1Qh8GimG4aQZMwdZzyNvcT362BSXjavpzbAW63mCumujPxbWw7MhF7YESsIGgnbKTcz20SLaZVbdgXUEeXCkw59GjwcgEJZ-PC79Dsd91fm3fqzEQ__",
+            "title" : "100% secured data"
+        },
+        {
+            "id" : 2,
+            "image" : "https://s3-alpha-sig.figma.com/img/9581/106b/8ad0a91e1fe709e76df5a5953b358cc9?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ddvIIN1AZQnOMm2M0A2TTLKmRqgFIcMDxtefOLdYSnWho1GCAevYvVZwrVwLG6V5y29HdX~mlSm6W7RtfAVGTPAPc7vI7ld6qh~xEKXoCa9Edhn-dc99vI33pwbaT9IU31RHGZLXP1Glcf75LVQqazmwVPc0fj6gm84cPn64C6hn4iZLJjutJoelO-D2UUZu88IVWSI10fKBaQRdCAPqkEk7O0ZS9JFyDtRqJ5yYMLR2gkHHJ12HXltpbbyCwh3S4Yh8GK0nOmHLrSoc1upyWoG1SQmiE-zNPU~1OA8JuLke0Vt8UElVbdxv~n77psuKwh7-z-rmBOu0JC5ej7yzVQ__",
+            "title" : "Trusted by users"
+        },
+        {
+            "id" : 3,
+            "image" : "https://s3-alpha-sig.figma.com/img/e7cb/9d9f/0383138e06e68c3ba675c3320ad42c61?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lPrdOxHoX-2aNLTYpL3baThQ0hjty~I99UeIzMKgYDfRf7Mlfcigt16og9S0F6kg5xS0gsy8L47o~SLm~ILTi1nJIzqDYXvzqa47APGJpHFxhUoIwrci5NCWt8YPWt~TGhaDSengnW0Ehac7mlIiDlcExL-8UVo0mrXxdQueGGYARE-SbGRsJnQxuf2HfnQyEWL0kzWmn4~3UWnV8Bji5Cjr7szv2yJ~DrFMPptWdey0BYSWft3R5EdQMtUR3BUHqMWafIDCmdAY4n9dirxeBA7fXIGEOyE8DlkdQ0GyUFmB9SjSut2FiTWRQeRQxFPWkLWr8VWjDyq5yz3pbjnX7Q__",
+            "title" : "Easy to use"
+        },
+        {
+            "id" : 4,
+            "image" : "https://s3-alpha-sig.figma.com/img/5897/5dec/437d6e38e4df81f31fe31b6b03254b53?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fEQXw9YXcVFlSvdD2TeogZ4h~Oo6l5PbMwgZafo3rGJAvZabdUC~s99pH5isMdyXFyEgERU1edt0u0hI-HureaPlnups22ejP-6xCXjBsw2YFqyUt0akG5CTQNRSa-r3k1lq~ulFrqr9L3AgfADLk0nYcBfWdB26VvLRI5vmc4yoeE9G0GuYKRex2EmaThsjj6AauO5z08EFEZT2IpUsOPJTmP89hZo-jv3pBp~K9fR9fJ6fkEU6QQRyuYxd3OAy~hOCEMc08xRjlcGDxSewQqBQbic7ndIw-BRFg2Pm9jMn2Tn-U-FnACncaMni8qzd8eDLoxsH2vapSX7gQ4x6Rg__",
+            "title" : "App of the day"
+        }
+    ],
+    "data_feedback" : [
+        {
+            "id" : 1,
+            "name" : "Ilham Fathullah",
+            "feed_back" : "Perfect app. My wife and use it to track all our expenses and income. We generate our household accounts and budget using this fab app."
+        },
+        {
+            "id" : 2,
+            "name" : "Hilal Akbar",
+            "feed_back" : "Perfect app. My wife and use it to track all our expenses and income. We generate our household accounts and budget using this fab app."
+        },
+        {
+            "id" : 3,
+            "name" : "Hizamrul Jaen",
+            "feed_back" : "Perfect app. My wife and use it to track all our expenses and income. We generate our household accounts and budget using this fab app."
+        }
+    ],
+    "data_wallet" : [
+        {
+            "id" : 1,
+            "title" : "Inflow",
+            "saldo" : "5.000.000,00",
+            "image" : "https://s3-alpha-sig.figma.com/img/afed/4a2c/1a1d5e59d03a75ec34ffb626af7355b8?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T2mOTC2rb98PHwNkpcvsVbMTPZFkZ3CYlnHIY3wLdEAQoZhOKh4Ro4iKdeaKyG~OXQReLhuZQlDIPMpfxZbXhM9MtS7gMO68k~HdhiM-O5dTALgooK54KZbdvWZOeoBxasTyxdRAITyLkbUsbGGUmGVPAM1LO5ft4QFFfQnJqZ6Uh-eYDC~zAeXAX~8mfbC~otGI5t4D5KmbWIMkW40B9yQn6lirBrgqbzAz5l3yjlMbJyrN9zGjmVbGxDLaEsDi1U9eiqrl9mjfyrNIFoPA5QJ3CrcBb99-i-xy5mjJ9-IX-Ezd~xw4jp6NvZVHOaJmVdcNC0M7bOyBfoCOJnhnuw__"
+        },
+        {
+            "id" : 2,
+            "title" : "Outflow",
+            "saldo" : "306.000,00",
+            "image" : "https://s3-alpha-sig.figma.com/img/6203/97a5/e07f0df5dcb6320e5d64c6fc43b6438f?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=d-dk0GGMO3ZMBBzN7IMrvmzB2p4CuHhK1hoHPpnSuvQpJ~MpA1LxR1nVAP73usAg9MklA65inrk9QOKTvrsDErZqHp86ufzsW89PlltS8F~ThR5fSzaIS7INBc5KRnEusypQzxhvRVxIHbxI93roQ317ON2wakoCFBno2Mpf4cQU-DXuPv4iPral8pUODFgecLLKWXhMObOqmAY-V0Rv5a1-lPTe5r0twUcPhJ7F0bRmuN6zOFqbfRMVgM~z9Z0gCuhXUnf6rNyLXrRXAW-DPk6tTE-6G8XN7keqVRaFVhH98Ha-L1xR9WKDEjrtJ9~8kvAiT6jeu1EbRmnHAfBviw__"
+        },
+        {
+            "id" : 3,
+            "title" : "Balance",
+            "saldo" : "4.694.000,00",
+            "image" : "https://s3-alpha-sig.figma.com/img/afed/4a2c/1a1d5e59d03a75ec34ffb626af7355b8?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T2mOTC2rb98PHwNkpcvsVbMTPZFkZ3CYlnHIY3wLdEAQoZhOKh4Ro4iKdeaKyG~OXQReLhuZQlDIPMpfxZbXhM9MtS7gMO68k~HdhiM-O5dTALgooK54KZbdvWZOeoBxasTyxdRAITyLkbUsbGGUmGVPAM1LO5ft4QFFfQnJqZ6Uh-eYDC~zAeXAX~8mfbC~otGI5t4D5KmbWIMkW40B9yQn6lirBrgqbzAz5l3yjlMbJyrN9zGjmVbGxDLaEsDi1U9eiqrl9mjfyrNIFoPA5QJ3CrcBb99-i-xy5mjJ9-IX-Ezd~xw4jp6NvZVHOaJmVdcNC0M7bOyBfoCOJnhnuw__"
+        }
+    ],
+    "data_category" : [
+        {
+            "id" : 1,
+            "category" : "Sallary",
+            "type" : "Income",
+            "image" : "https://s3-alpha-sig.figma.com/img/891a/267e/799f4819abb838cbd0c78d0a8eeaa584?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UpKB7tHEM6XlF7RWcSR7ynbmg-O6WiY0y9bDr~Ku7t5z9HTxVjRJSYuvfzFSSdd4TK739LCTw2-aUt6-JOhQMagYWRBaXkDEGYzlrE7kDTLdp1j~U8jtfdFABmPBqFnjmuRO~LrS44CNgA~Ayu9mP1L3e78o9HSxuUkaJp5PXAklqkCpr~NZWL0yF3oQgXjxmWP-Ak3UmWeTnD2lDVoUZMOCy-dmEczcJH8nmncgD5qo0j5aY03mmIZiW~AtBaBX-KMZpDnNXtKnHslHeCmEp3aFdL6o0qvahqkSR38hIi3biTgUsfE4jfRAiL1lCiWzTptAyUUXew7H~uHHRD2Gwg__"
+        },
+        {
+            "id" : 2,
+            "category" : "Family",
+            "type" : "Outcome",
+            "image" : "https://s3-alpha-sig.figma.com/img/2159/100c/09b8b728b99ff158cfde37ea83e324a6?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JrZI~ZugfTkHKsouXc2Av8GI8EcCof0VOTyeYGV1-7cX2rpokNohSXKweMwl5EPGcI5-sSKYhDm~ZuTvyD-L0WGEXxyR0g03EKbU30VoF1YIxSGkL1aNVNpsizm~7YuOA4w52RgEJehJI1QTcCGlpIjMhkICXxC49IajW57~T0v~H1LH5DExMc2-dK6Q6P39tW1WU5NW6Lwaev0qKz8WPL39QE1wdYLaRXByxp8CoMHB2JICA4GI5OVbOHTSe4wcFsY1AAT86cUHYXvFQ64RqjcklNz5fmI7ca3syKfdHD3UO2eVaBUvvhm2GCSmGtcFIWMhVmVyVy5Faagko1YEow__"
+        },
+        {
+            "id" : 3,
+            "category" : "Food & Beverages",
+            "type" : "Outcome",
+            "image" : "https://s3-alpha-sig.figma.com/img/a6bf/ab89/5c826dca75d4875d0e3ee4769762a13e?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AYdguntKaVPkF0f0fZu9wkOvUO~dO3m0XDNPnG5NCybXsy~DdkTSsPmAkXKHg7u3KDndbr0x4M9vm6l5wr0tywYg0owTDgcCF~nv5MQL6miYubROamDkyUa4LHrHOywf-TAlpAzk0ugFtzMnReEsW1BJSMHguozFnehnqLV~HXKws7cp1oMfAq627WnV8ARrnoa2iTo~Jzry-tHCX2WxET5PbKvNv0oDuqFnUH0T9fulHIDBxCfcca2ZjhrGJ3f2uhe~gjHr5bmMunZrTE5oKVzAgVjpz0C0wIkaVDzcEWLVzooqFRvaHghIqQS5M0ehd~~oC3OA2MLJP0pywyGb7A__"
+        }
+    ],
+    "data_transaction" : [
+        {
+            "id" : 1,
+            "amount" : "5.000.000",
+            "date" : "2024-04-01",
+            "category" : "Sallary",
+            "note" : "Gaji bulan Maret",
+            "data_category" : [
+                {
+                    "id" : 1,
+                    "category" : "Sallary",
+                    "type" : "Income",
+                    "image" : "https://s3-alpha-sig.figma.com/img/891a/267e/799f4819abb838cbd0c78d0a8eeaa584?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UpKB7tHEM6XlF7RWcSR7ynbmg-O6WiY0y9bDr~Ku7t5z9HTxVjRJSYuvfzFSSdd4TK739LCTw2-aUt6-JOhQMagYWRBaXkDEGYzlrE7kDTLdp1j~U8jtfdFABmPBqFnjmuRO~LrS44CNgA~Ayu9mP1L3e78o9HSxuUkaJp5PXAklqkCpr~NZWL0yF3oQgXjxmWP-Ak3UmWeTnD2lDVoUZMOCy-dmEczcJH8nmncgD5qo0j5aY03mmIZiW~AtBaBX-KMZpDnNXtKnHslHeCmEp3aFdL6o0qvahqkSR38hIi3biTgUsfE4jfRAiL1lCiWzTptAyUUXew7H~uHHRD2Gwg__"
+                }
+            ]
+        },
+        {
+            "id" : 2,
+            "amount" : "278.000",
+            "date" : "2024-04-03",
+            "category" : "Family",
+            "note" : "Traktir makan keluarga",
+            "data_category" : [
+                {
+                    "id" : 2,
+                    "category" : "Family",
+                    "type" : "Outcome",
+                    "image" : "https://s3-alpha-sig.figma.com/img/2159/100c/09b8b728b99ff158cfde37ea83e324a6?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JrZI~ZugfTkHKsouXc2Av8GI8EcCof0VOTyeYGV1-7cX2rpokNohSXKweMwl5EPGcI5-sSKYhDm~ZuTvyD-L0WGEXxyR0g03EKbU30VoF1YIxSGkL1aNVNpsizm~7YuOA4w52RgEJehJI1QTcCGlpIjMhkICXxC49IajW57~T0v~H1LH5DExMc2-dK6Q6P39tW1WU5NW6Lwaev0qKz8WPL39QE1wdYLaRXByxp8CoMHB2JICA4GI5OVbOHTSe4wcFsY1AAT86cUHYXvFQ64RqjcklNz5fmI7ca3syKfdHD3UO2eVaBUvvhm2GCSmGtcFIWMhVmVyVy5Faagko1YEow__"
+                }
+            ]
+        },
+        {
+            "id" : 3,
+            "amount" : "28.000",
+            "date" : "2024-04-06",
+            "category" : "Food & Beverages",
+            "note" : "Beli KFC",
+            "data_category" : [
+                {
+                    "id" : 3,
+                    "category" : "Food & Beverages",
+                    "type" : "Outcome",
+                    "image" : "https://s3-alpha-sig.figma.com/img/a6bf/ab89/5c826dca75d4875d0e3ee4769762a13e?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AYdguntKaVPkF0f0fZu9wkOvUO~dO3m0XDNPnG5NCybXsy~DdkTSsPmAkXKHg7u3KDndbr0x4M9vm6l5wr0tywYg0owTDgcCF~nv5MQL6miYubROamDkyUa4LHrHOywf-TAlpAzk0ugFtzMnReEsW1BJSMHguozFnehnqLV~HXKws7cp1oMfAq627WnV8ARrnoa2iTo~Jzry-tHCX2WxET5PbKvNv0oDuqFnUH0T9fulHIDBxCfcca2ZjhrGJ3f2uhe~gjHr5bmMunZrTE5oKVzAgVjpz0C0wIkaVDzcEWLVzooqFRvaHghIqQS5M0ehd~~oC3OA2MLJP0pywyGb7A__"
+                }
+            ]
+        },
+        {
+            "id" : 4,
+            "amount" : "50.000",
+            "date" : "2024-04-06",
+            "category" : "Food & Beverages",
+            "note" : "Beli Gacoan",
+            "data_category" : [
+                {
+                    "id" : 3,
+                    "category" : "Food & Beverages",
+                    "type" : "Outcome",
+                    "image" : "https://s3-alpha-sig.figma.com/img/a6bf/ab89/5c826dca75d4875d0e3ee4769762a13e?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AYdguntKaVPkF0f0fZu9wkOvUO~dO3m0XDNPnG5NCybXsy~DdkTSsPmAkXKHg7u3KDndbr0x4M9vm6l5wr0tywYg0owTDgcCF~nv5MQL6miYubROamDkyUa4LHrHOywf-TAlpAzk0ugFtzMnReEsW1BJSMHguozFnehnqLV~HXKws7cp1oMfAq627WnV8ARrnoa2iTo~Jzry-tHCX2WxET5PbKvNv0oDuqFnUH0T9fulHIDBxCfcca2ZjhrGJ3f2uhe~gjHr5bmMunZrTE5oKVzAgVjpz0C0wIkaVDzcEWLVzooqFRvaHghIqQS5M0ehd~~oC3OA2MLJP0pywyGb7A__"
+                }
+            ]
+        }
+    ]
+}

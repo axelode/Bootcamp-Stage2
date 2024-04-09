@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { addTransaction } from "../utils/TransactionUtil"
 import { PrismaClient } from "@prisma/client"
+import { number } from "joi"
 
 const prisma = new PrismaClient()
 
@@ -16,7 +17,7 @@ export default new class TransactionService {
             if(error) return res.status(400).json(error.message)
 
             const tokenDecode = res.locals.loginSession.tokenPayload
-            const id = tokenDecode.id
+            const id: number = tokenDecode.id
 
             const thisWallet = await this.WalletRepo.findUnique({ 
                 where: {user_id: id}
@@ -41,8 +42,8 @@ export default new class TransactionService {
                 }
             })
 
-            const in_flow = thisWallet.in_flow + body.amount
-            const out_flow = thisWallet.out_flow + body.amount
+            const in_flow: number = thisWallet.in_flow + body.amount
+            const out_flow: number = thisWallet.out_flow + body.amount
             let balance: number
 
             let updatedWallet: any
@@ -84,16 +85,124 @@ export default new class TransactionService {
     async findTransactionByUserId(req: Request, res: Response) {
         try{
             const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id = tokenDecode.id
+            const user_id: number = tokenDecode.id
 
             const thisTransaction = await this.TransactionRepo.findMany({
-                where: { user_id: user_id},
+                where: { user_id: user_id },
                 include: {
                     category_detail: true
                 }
             })
 
             return res.status(201).json(thisTransaction)
+        }catch(err) {
+            return res.status(500).json(err)
+        }
+    }
+
+    async findLastMonthTransaction(req: Request, res: Response) {
+        try{
+            const tokenDecode = res.locals.loginSession.tokenPayload
+            const user_id = tokenDecode.id
+            
+            const thisTransaction = await this.TransactionRepo.findMany({
+                where: { user_id: user_id },
+                include: {
+                    category_detail: true
+                }
+            })
+            
+            const lastMonth: any[] = []
+
+            {thisTransaction.map((data) => {
+                const tMonth: number = new Date().getMonth() + 1
+
+                const dMonth: number = new Date(data.date).getMonth() + 1
+
+                const nData = {
+                    ...data,
+                    dMonth
+                }
+
+                if(nData.dMonth + 1 === tMonth) {
+                    lastMonth.push(nData)
+                }
+
+            })}
+
+            return res.status(201).json(lastMonth)
+        }catch(err) {
+            return res.status(500).json(err)
+        }
+    }
+
+    async findThisMonthTransaction(req: Request, res: Response) {
+        try{
+            const tokenDecode = res.locals.loginSession.tokenPayload
+            const user_id = tokenDecode.id
+            
+            const thisTransaction = await this.TransactionRepo.findMany({
+                where: { user_id: user_id },
+                include: {
+                    category_detail: true
+                }
+            })
+            
+            const thisMonth: any[] = []
+
+            {thisTransaction.map((data) => {
+                const tMonth: number = new Date().getMonth() + 1
+
+                const dMonth: number = new Date(data.date).getMonth() + 1
+
+                const nData = {
+                    ...data,
+                    dMonth
+                }
+
+                if(nData.dMonth === tMonth) {
+                    thisMonth.push(nData)
+                }
+
+            })}
+
+            return res.status(201).json(thisMonth)
+        }catch(err) {
+            return res.status(500).json(err)
+        }
+    }
+    
+    async findFutureTransaction(req: Request, res: Response) {
+        try{
+            const tokenDecode = res.locals.loginSession.tokenPayload
+            const user_id = tokenDecode.id
+            
+            const thisTransaction = await this.TransactionRepo.findMany({
+                where: { user_id: user_id },
+                include: {
+                    category_detail: true
+                }
+            })
+            
+            const thisFuture: any[] = []
+
+            {thisTransaction.map((data) => {
+                const tMonth: number = new Date().getMonth() + 1
+
+                const dMonth: number = new Date(data.date).getMonth() + 1
+
+                const nData = {
+                    ...data,
+                    dMonth
+                }
+
+                if(tMonth + 1 === nData.dMonth) {
+                    thisFuture.push(nData)
+                }
+
+            })}
+
+            return res.status(201).json(thisFuture)
         }catch(err) {
             return res.status(500).json(err)
         }

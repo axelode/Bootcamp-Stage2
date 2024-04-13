@@ -2,15 +2,26 @@ import React, { useState } from "react"
 import DataTransactionInterface from "../../interface/DataTransactionInterface"
 import transactionData from "../../assets/static_data/dummy_data/transactionData.json"
 
+import TransactionTable from "./TransactionTable"
+
 export default function DateTable() {
     const [transaction, setTransaction] = React.useState<DataTransactionInterface[]>(transactionData)
 
-    const sortedData = transaction.sort((a, b) => b.id - a.id)
+    const sortedData: DataTransactionInterface[] = transaction.sort((a, b) => b.id - a.id)
 
+    const dataDate = []
+
+    for(let i = 0; i < sortedData.length; i++) {
+        dataDate.push(transaction[i].date)
+    }
+
+    const datefilter = [ ...new Set(dataDate) ]
+    
     return (
         <>
-            {sortedData.map((data: DataTransactionInterface) => {
-                const dateTime = new Date(data.date)
+            {datefilter.map((data) => {
+
+                const dateTime = new Date(data)
                 
                 const date = dateTime.getDate()
                 const day = dateTime.getDay()
@@ -24,6 +35,7 @@ export default function DateTable() {
                 const monthString = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
 
                 const template = 
+                <>
                     <div className="border-b-[1px] border-[#DDDDDD]">
                         <div className="flex items-center px-5 py-1.5">
                             <div className="flex flex-1 gap-3">
@@ -38,6 +50,7 @@ export default function DateTable() {
                             <p className="text-xl font-bold">-306,000</p>
                         </div>
                     </div>
+                </>
 
                 return template
             })}

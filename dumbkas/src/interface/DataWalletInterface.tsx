@@ -1,6 +1,14 @@
-export default interface DataWallet {
+// export interface DataWalletInterface {
+//     id: number,
+//     in_flow: number,
+//     out_dlow: number,
+//     balance: number,
+//     user_id: number
+// }
+
+export interface DataWalletInterface {
     id: number,
-    title: string,
-    saldo: string,
-    image: string
+    cash: string,
+    image: string,
+    title: string
 }

@@ -1,28 +1,26 @@
-import React, { useState } from "react"
-import DataWalletInterface from "../../interface/DataWalletInterface"
-import DataWallet from "../../assets/static_data/dummy_data/dataWallet.json"
+import React, { useContext } from "react"
+import { WalletContext } from "../../context/wallet_context"
 
-export default function WalletCard() {
-    const [wallet, setWallet] = React.useState<DataWalletInterface[]>(DataWallet)
+export default function WalletCard(): React.JSX.Element {
+    const { wallet } = useContext(WalletContext)
 
     return (
         <>
-            {wallet.map((data: DataWalletInterface) => {
-                const template = 
-                    <div className="w-60 flex items-center gap-5 p-3 border-[1px] border-black rounded-lg shadow-xl">
-                        <img 
-                            src={data.image} 
-                            alt=""
-                            width={50} 
-                        />
-                        <div className="flex flex-col">
-                            <p className="font-medium text-[#38A3A5]">{data.title}</p>
-                            <p className="font-bold">Rp. {data.saldo}</p>
-                        </div>
+            {wallet.map((wallets) => {
+                <div key={wallets.id} className="w-60 flex items-center gap-5 p-3 border-[1px] border-black rounded-lg shadow-xl">
+                    <img 
+                        src={wallets.image} 
+                        alt=""
+                        width={50} 
+                    />
+                    <div className="flex flex-col">
+                        <p className="font-medium text-[#38A3A5]">{wallets.title}</p>
+                        <p className="font-bold">Rp. {wallets.cash}</p>
                     </div>
-
-                return template
+                </div>
             })}
         </>
     )
 }
+
+// export default WalletCard

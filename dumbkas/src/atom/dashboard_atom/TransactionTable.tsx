@@ -1,10 +1,10 @@
-import React, {  useState } from "react"
+import React from "react"
 import DataTransactionInterface from "../../interface/DataTransactionInterface"
 
 import transactionData from "../../assets/static_data/dummy_data/transactionData.json"
 
 export default function TransactionTable() {
-    const [transaction, setTransaction] = React.useState<DataTransactionInterface[]>(transactionData)
+    const [transaction] = React.useState<DataTransactionInterface[]>(transactionData)
 
     const sortedData = transaction.sort((a, b) => b.id - a.id)
 
@@ -30,7 +30,7 @@ export default function TransactionTable() {
                                 <p>{data.note}</p>
                             </div>
                         </div>
-                        <p className="" style={{color: amountColor}}>{data.amount}</p>
+                        <p style={{color: amountColor}}>{data.amount}</p>
                     </div>
 
                 return template

@@ -20,7 +20,7 @@ export default function HomePage(): React.JSX.Element {
             </div>
 
             {/* transaction table */}
-            <div className="flex justify-start items-center gap-12 ml-[200px] mt-24">
+            <div className="flex justify-start items-center gap-12 ml-[189px] mt-24">
                 <TransactionTable />
                 <div className="w-3/6">
                     <h1 className="text-left text-4xl"><span className="text-[#57CC99]">Simple</span><span className="text-[#22577A]"> money tracker</span></h1>
@@ -31,7 +31,7 @@ export default function HomePage(): React.JSX.Element {
             </div>
             
             {/* summary expense table */}
-            <div className="flex justify-end items-center gap-12 mr-[200px] mt-24">
+            <div className="flex justify-end items-center gap-12 mr-[189px] mt-24">
                 <div className="w-3/6">
                     <h1 className="text-right text-4xl"><span className="text-[#22577A]">Painless </span><span className="text-[#57CC99]"> budgeting</span></h1>
                     <p className="mt-5 text-right text-xl text-[#22577A]">

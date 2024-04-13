@@ -2,9 +2,7 @@ import React from "react"
 import Navbar from "../components/home_comp/HomeNavbar"
 import HomePage from "../components/home_comp/HomePage"
 import Footer from "../components/Footer"
-
-import Signup from "../parts/home_part/SignupCard"
-import Login from "../parts/home_part/LoginCard"
+import Loading from "../atom/loading"
 
 export default function Home(): React.JSX.Element { 
     return (
@@ -12,9 +10,8 @@ export default function Home(): React.JSX.Element {
             <Navbar />
             <HomePage />
             <Footer />
-            <div className="w-full h-screen absolute right-0 top-0 hidden">
-                {/* <Signup /> */}
-                {/* <Login /> */}
+            <div className="absolute w-full h-screen top-0 left-0 hidden">
+                <Loading />
             </div>
         </div>
     )

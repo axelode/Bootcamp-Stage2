@@ -28,5 +28,15 @@
         "category_name" : "Food & Beverages",
         "type" : "Outcome",
         "image" : "https://s3-alpha-sig.figma.com/img/a6bf/ab89/5c826dca75d4875d0e3ee4769762a13e?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AYdguntKaVPkF0f0fZu9wkOvUO~dO3m0XDNPnG5NCybXsy~DdkTSsPmAkXKHg7u3KDndbr0x4M9vm6l5wr0tywYg0owTDgcCF~nv5MQL6miYubROamDkyUa4LHrHOywf-TAlpAzk0ugFtzMnReEsW1BJSMHguozFnehnqLV~HXKws7cp1oMfAq627WnV8ARrnoa2iTo~Jzry-tHCX2WxET5PbKvNv0oDuqFnUH0T9fulHIDBxCfcca2ZjhrGJ3f2uhe~gjHr5bmMunZrTE5oKVzAgVjpz0C0wIkaVDzcEWLVzooqFRvaHghIqQS5M0ehd~~oC3OA2MLJP0pywyGb7A__"
+    },
+    {
+        "id" : 4,
+        "amount" : "50.000",
+        "date" : "2024-04-06",
+        "category" : "Food & Beverages",
+        "note" : "Beli Gacoan",
+        "category_name" : "Food & Beverages",
+        "type" : "Outcome",
+        "image" : "https://s3-alpha-sig.figma.com/img/a6bf/ab89/5c826dca75d4875d0e3ee4769762a13e?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AYdguntKaVPkF0f0fZu9wkOvUO~dO3m0XDNPnG5NCybXsy~DdkTSsPmAkXKHg7u3KDndbr0x4M9vm6l5wr0tywYg0owTDgcCF~nv5MQL6miYubROamDkyUa4LHrHOywf-TAlpAzk0ugFtzMnReEsW1BJSMHguozFnehnqLV~HXKws7cp1oMfAq627WnV8ARrnoa2iTo~Jzry-tHCX2WxET5PbKvNv0oDuqFnUH0T9fulHIDBxCfcca2ZjhrGJ3f2uhe~gjHr5bmMunZrTE5oKVzAgVjpz0C0wIkaVDzcEWLVzooqFRvaHghIqQS5M0ehd~~oC3OA2MLJP0pywyGb7A__"
     }
 ]

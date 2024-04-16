@@ -1,5 +1,13 @@
 {
-    "data_wallet" : [
+    "data_wallet_v1" : [
+        {
+            "id" : 1,
+            "inflow" : "5.000.000,00",
+            "outflow" : "306.000,00",
+            "balance" : "4.694.000,00"
+        }
+    ],
+    "data_wallet_v2" : [
         {
             "id" : 1,
             "title" : "Inflow",

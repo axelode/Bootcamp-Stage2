@@ -6,104 +6,103 @@ import { number } from "joi"
 const prisma = new PrismaClient()
 
 export default new class TransactionService {
-    private readonly TransactionRepo = prisma.tb_transaction
     private readonly WalletRepo = prisma.tb_wallet
     private readonly CategoryRepo = prisma.tb_category
+    private readonly TransactionRepo = prisma.tb_transaction
+    private readonly PendingTransactionRepo = prisma.tb_pending_transaction
 
     async addTransaction(req: Request, res: Response): Promise<Response> {
         try{
             const body = req.body
-            const { error } = addTransaction.validate(body)
-            if(error) return res.status(400).json(error.message)
+            const { error, value } = addTransaction.validate(body)
 
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const id: number = tokenDecode.id
+            if(error) return res.status(400).json({ message: "Input Validation Error!" })
 
-            const thisWallet = await this.WalletRepo.findUnique({ 
-                where: {user_id: id}
-            })
+            const id: number = res.locals.login_session.tokenPayload.id
 
-            if(!thisWallet) return res.status(400).json({ message: "Wallet not found!" })
+            if(!id) return res.status(404).json({ message: "User ID Not Found!" })
 
-            const thisCategory = await this.CategoryRepo.findUnique({
-                where: { category_name: body.category }
-            })
+            const thisWallet = await this.WalletRepo.findUnique({ where: {user_id: id} })
 
-            if(!thisCategory) return res.status(400).json({ message: "Category not found!" })
+            if(!thisWallet) return res.status(404).json({ message: "Wallet Not Found!" })
+
+            const thisCategory = await this.CategoryRepo.findUnique({ where: { category_name: value.category } })
+
+            if(!thisCategory) return res.status(404).json({ message: "Category Not Found!" })
 
             const newTransaction = await this.TransactionRepo.create({
                 data: {
-                    amount: body.amount,
-                    date: body.date,
-                    category: body.category,
-                    note: body.note,
-                    user_id: id,
-                    created_at: new Date()
+                    amount: value.amount,
+                    date: value.date,
+                    category: value.category,
+                    note: value.note,
+                    user_id: id
                 }
             })
-
-            const in_flow: number = thisWallet.in_flow + body.amount
-            const out_flow: number = thisWallet.out_flow + body.amount
+            
+            const inflow: number = thisWallet.inflow + value.amount
+            const outflow: number = thisWallet.outflow + value.amount
             let balance: number
+            
+            let updateWallet: any
+            let newPendingTransaction: any
+            
+            const tMonth: number = new Date().getMonth() + 1
+            const dMonth: number = new Date(value.date).getMonth() + 1
 
-            let updatedWallet: any
+            if(dMonth > tMonth) {
+                const pendingTransaction = await this.PendingTransactionRepo.create({
+                    data: {
+                        amount: value.amount,
+                        date: value.date,
+                        category: value.category,
+                        note: value.note,
+                        user_id: id
+                    }
+                })
 
-            if(thisCategory?.type === "Income") {
-                balance = thisWallet.balance + body.amount
-
-                const updateWallet = await this.WalletRepo.update({
-                        where: {user_id: id},
-                        data: {
-                            in_flow: in_flow,
-                            balance: balance,
-                            user_id: id
-                        }
-                    })
-
-                    updatedWallet = updateWallet
+                newPendingTransaction = pendingTransaction
             }else {
-                balance = thisWallet.balance - body.amount
+                if(thisCategory?.type === "Income") {
+                    balance = thisWallet.balance + value.amount
 
-                const updateWallet = await this.WalletRepo.update({
-                        where: {user_id: id},
-                        data: {
-                            out_flow: out_flow,
-                            balance: balance,
-                            user_id: id
-                        }
-                    })
+                    const incomeWallet = await this.WalletRepo.update({
+                            where: {user_id: id},
+                            data: {
+                                inflow: inflow,
+                                balance: balance,
+                                user_id: id
+                            }
+                        })
 
-                    updatedWallet = updateWallet
+                    updateWallet = incomeWallet
+                }else {
+                    balance = thisWallet.balance - value.amount
+
+                    const outcomeWallet = await this.WalletRepo.update({
+                            where: {user_id: id},
+                            data: {
+                                outflow: outflow,
+                                balance: balance,
+                                user_id: id
+                            }
+                        })
+
+                    updateWallet = outcomeWallet
+                }
             }
 
-            return res.status(201).json({ newTransaction, updatedWallet })
+            return res.status(201).json({ newTransaction, newPendingTransaction, updateWallet })
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
 
-    async findTransactionByUserId(req: Request, res: Response) {
+    async findLastMonthTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id: number = tokenDecode.id
+            const user_id = res.locals.login_session.tokenPayload.id
 
-            const thisTransaction = await this.TransactionRepo.findMany({
-                where: { user_id: user_id },
-                include: {
-                    category_detail: true
-                }
-            })
-
-            return res.status(201).json(thisTransaction)
-        }catch(err) {
-            return res.status(500).json(err)
-        }
-    }
-
-    async findLastMonthTransaction(req: Request, res: Response) {
-        try{
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id = tokenDecode.id
+            if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             
             const thisTransaction = await this.TransactionRepo.findMany({
                 where: { user_id: user_id },
@@ -116,15 +115,18 @@ export default new class TransactionService {
 
             {thisTransaction.map((data) => {
                 const tMonth: number = new Date().getMonth() + 1
+                const tYear: number = new Date().getFullYear()
 
                 const dMonth: number = new Date(data.date).getMonth() + 1
+                const dYear: number = new Date(data.date).getFullYear()
 
                 const nData = {
                     ...data,
-                    dMonth
+                    dMonth,
+                    dYear
                 }
 
-                if(nData.dMonth + 1 === tMonth) {
+                if(nData.dMonth + 1 === tMonth && nData.dYear === tYear) {
                     lastMonth.push(nData)
                 }
 
@@ -132,14 +134,15 @@ export default new class TransactionService {
 
             return res.status(201).json(lastMonth)
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
 
-    async findThisMonthTransaction(req: Request, res: Response) {
+    async findThisMonthTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id = tokenDecode.id
+            const user_id = res.locals.login_session.tokenPayload.id
+
+            if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             
             const thisTransaction = await this.TransactionRepo.findMany({
                 where: { user_id: user_id },
@@ -152,15 +155,18 @@ export default new class TransactionService {
 
             {thisTransaction.map((data) => {
                 const tMonth: number = new Date().getMonth() + 1
+                const tYear: number = new Date().getFullYear()
 
                 const dMonth: number = new Date(data.date).getMonth() + 1
+                const dYear: number = new Date(data.date).getFullYear()
 
                 const nData = {
                     ...data,
-                    dMonth
+                    dMonth,
+                    dYear
                 }
 
-                if(nData.dMonth === tMonth) {
+                if(nData.dMonth === tMonth && nData.dYear === tYear) {
                     thisMonth.push(nData)
                 }
 
@@ -168,14 +174,15 @@ export default new class TransactionService {
 
             return res.status(201).json(thisMonth)
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
     
-    async findFutureTransaction(req: Request, res: Response) {
+    async findFutureTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id = tokenDecode.id
+            const user_id = res.locals.login_session.tokenPayload.id
+
+            if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             
             const thisTransaction = await this.TransactionRepo.findMany({
                 where: { user_id: user_id },
@@ -188,15 +195,18 @@ export default new class TransactionService {
 
             {thisTransaction.map((data) => {
                 const tMonth: number = new Date().getMonth() + 1
+                const tYear: number = new Date().getFullYear()
 
                 const dMonth: number = new Date(data.date).getMonth() + 1
+                const dYear: number = new Date(data.date).getFullYear()
 
                 const nData = {
                     ...data,
-                    dMonth
+                    dMonth,
+                    dYear
                 }
 
-                if(tMonth + 1 === nData.dMonth) {
+                if(tMonth + 1 === nData.dMonth && tYear === nData.dYear) {
                     thisFuture.push(nData)
                 }
 
@@ -204,7 +214,7 @@ export default new class TransactionService {
 
             return res.status(201).json(thisFuture)
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
 }

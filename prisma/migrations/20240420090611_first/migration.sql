@@ -11,10 +11,11 @@ CREATE TABLE "Tb_user" (
 -- CreateTable
 CREATE TABLE "Tb_wallet" (
     "id" SERIAL NOT NULL,
-    "in_flow" INTEGER,
-    "out_flow" INTEGER,
+    "inflow" INTEGER,
+    "outflow" INTEGER,
     "balance" INTEGER NOT NULL,
     "user_id" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Tb_wallet_pkey" PRIMARY KEY ("id")
 );
@@ -25,7 +26,6 @@ CREATE TABLE "Tb_category" (
     "category_name" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "image" TEXT NOT NULL,
-    "user_id" INTEGER NOT NULL,
 
     CONSTRAINT "Tb_category_pkey" PRIMARY KEY ("id")
 );
@@ -38,7 +38,7 @@ CREATE TABLE "Tb_transaction" (
     "category" TEXT NOT NULL,
     "note" TEXT NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Tb_transaction_pkey" PRIMARY KEY ("id")
 );
@@ -56,10 +56,7 @@ CREATE UNIQUE INDEX "Tb_category_category_name_key" ON "Tb_category"("category_n
 ALTER TABLE "Tb_wallet" ADD CONSTRAINT "Tb_wallet_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "Tb_user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Tb_category" ADD CONSTRAINT "Tb_category_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "Tb_user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Tb_transaction" ADD CONSTRAINT "Tb_transaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "Tb_user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Tb_transaction" ADD CONSTRAINT "Tb_transaction_category_fkey" FOREIGN KEY ("category") REFERENCES "Tb_category"("category_name") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Tb_transaction" ADD CONSTRAINT "Tb_transaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "Tb_user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

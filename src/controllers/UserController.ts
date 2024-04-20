@@ -9,4 +9,8 @@ export default new class UserController {
     login(req: Request, res: Response) {
         UserService.login(req, res)
     }
+    
+    logout(req: Request, res: Response) {
+        UserService.logout(req, res)
+    }
 }

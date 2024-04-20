@@ -6,10 +6,6 @@ export default new class TransactionController {
         TransactionService.addTransaction(req, res)
     }
 
-    findTransactionByUserId(req: Request, res: Response) {
-        TransactionService.findTransactionByUserId(req, res)
-    }
-
     findLastMonthTransaction(req: Request, res: Response) {
         TransactionService.findLastMonthTransaction(req, res)
     }

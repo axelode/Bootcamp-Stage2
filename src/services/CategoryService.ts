@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { addCategory } from "../utils/CategoryUtil"
 import { PrismaClient } from "@prisma/client"
-import cloudinary  from "../config"
+import cloudinary  from "../cloudinaryConfig"
 import * as fs from "fs"
 
 const prisma = new PrismaClient()
@@ -11,15 +11,19 @@ export default new class CategoryService {
 
     async addCategory(req: Request, res: Response): Promise<Response>  {
         try{
-            const body = req.body
-            const { error } = addCategory.validate(body)
-            if(error) return res.status(400).json(error.message)
+            const isAdmin: boolean = res.locals.login_session.isAdmin
 
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const id = tokenDecode.id
+            if(!isAdmin) return res.status(400).json({ message: "You're Not an Admin!" })
+
+            const body = req.body
+
+            const { error, value } = addCategory.validate(body)
+
+            if(error) return res.status(400).json({ message: "Input Validation Error!" })
 
             const image = req.file
-            if(!image) return res.status(400).json({ messages: "No file uploaded!" })
+
+            if(!image) return res.status(400).json({ messages: "No File Uploaded!" })
 
             const cloudinaryUpload = await cloudinary.uploader.upload(image.path, {
                 folder: "category"
@@ -29,35 +33,27 @@ export default new class CategoryService {
 
             const newCategory = await this.CategoryRepo.create({
                 data: {
-                    category_name: body.category_name,
-                    type: body.type,
-                    image: cloudinaryUpload.secure_url,
-                    user_id: id
+                    category_name: value.category_name,
+                    type: value.type,
+                    image: cloudinaryUpload.secure_url
                 }
             })
 
             return res.status(201).json(newCategory)
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
 
-    async findCategoryByUserId(req: Request, res: Response) {
+    async findCategory(req: Request, res: Response): Promise<Response> {
         try{
-            const tokenDecode = res.locals.loginSession.tokenPayload
-            const user_id = tokenDecode.id
+            const thisCategory = await this.CategoryRepo.findMany()
 
-            const thisCategory = await this.CategoryRepo.findMany({
-                where: { user_id: user_id }
-            })
-
-            if(!thisCategory) return res.status(400).json({
-                message: "No category found!"
-            })
+            if(!thisCategory) return res.status(404).json({ message: "Category Not Found!" })
 
             return res.status(201).json(thisCategory)
         }catch(err) {
-            return res.status(500).json(err)
+            return res.status(500).json({ message: err })
         }
     }
 }

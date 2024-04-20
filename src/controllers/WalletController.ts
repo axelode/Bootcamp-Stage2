@@ -5,4 +5,8 @@ export default new class WalletController {
     findWalletByUserId(req: Request, res: Response) {
         WalletService.findWalletByUserId(req, res)
     }
+
+    updateWalletFromPendingTransaction(req: Request, res: Response) {
+        WalletService.updateWalletFromPendingTransaction(req, res)
+    }
 }

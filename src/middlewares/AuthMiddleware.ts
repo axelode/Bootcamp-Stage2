@@ -1,5 +1,5 @@
-import * as jwt from "jsonwebtoken"
 import { Request, Response, NextFunction  } from "express"
+import * as jwt from "jsonwebtoken"
 
 export default new class AuthMiddleware {
     auth(req: Request, res: Response, next: NextFunction) {

@@ -15,16 +15,16 @@ const router = express.Router()
 // user
 router.post("/register", UserController.register)
 router.post("/login", UserController.login)
-router.post("/logout", UserController.logout)
+router.post("/logout", AuthMiddleware.auth, UserController.logout)
 
 // transaction
-router.post("/addTransaction/:category_id", AuthMiddleware.auth, TransactionController.addTransaction)
+router.post("/addTransaction", AuthMiddleware.auth, TransactionController.addTransaction)
 router.get("/findLastMonthTransaction", AuthMiddleware.auth, TransactionController.findLastMonthTransaction)
 router.get("/findThisMonthTransaction", AuthMiddleware.auth, TransactionController.findThisMonthTransaction)
 router.get("/findFutureTransaction", AuthMiddleware.auth, TransactionController.findFutureTransaction)
 
 // category
-router.post("/addCategory", AuthMiddleware.auth, upload.single('image'), CategoryController.addCategory)
+router.post("/addCategory", AuthMiddleware.auth, upload.single("image"), CategoryController.addCategory)
 router.get("/findCategory", AuthMiddleware.auth, CategoryController.findCategory)
 
 // wallet

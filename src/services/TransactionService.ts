@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { addTransaction } from "../utils/TransactionUtil"
 import { PrismaClient } from "@prisma/client"
-import { number } from "joi"
 
 const prisma = new PrismaClient()
 
@@ -18,7 +17,7 @@ export default new class TransactionService {
 
             if(error) return res.status(400).json({ message: "Input Validation Error!" })
 
-            const id: number = res.locals.login_session.tokenPayload.id
+            const id: number = res.locals.login_session.userPayload.id
 
             if(!id) return res.status(404).json({ message: "User ID Not Found!" })
 
@@ -48,9 +47,12 @@ export default new class TransactionService {
             let newPendingTransaction: any
             
             const tMonth: number = new Date().getMonth() + 1
+            const tYear: number = new Date().getFullYear()
+            
             const dMonth: number = new Date(value.date).getMonth() + 1
+            const dYear: number = new Date(value.date).getFullYear()
 
-            if(dMonth > tMonth) {
+            if(dMonth > tMonth && dYear === tYear) {
                 const pendingTransaction = await this.PendingTransactionRepo.create({
                     data: {
                         amount: value.amount,
@@ -100,7 +102,7 @@ export default new class TransactionService {
 
     async findLastMonthTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const user_id = res.locals.login_session.tokenPayload.id
+            const user_id = res.locals.login_session.userPayload.id
 
             if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             
@@ -140,7 +142,7 @@ export default new class TransactionService {
 
     async findThisMonthTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const user_id = res.locals.login_session.tokenPayload.id
+            const user_id = res.locals.login_session.userPayload.id
 
             if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             
@@ -180,7 +182,7 @@ export default new class TransactionService {
     
     async findFutureTransaction(req: Request, res: Response): Promise<Response> {
         try{
-            const user_id = res.locals.login_session.tokenPayload.id
+            const user_id = res.locals.login_session.userPayload.id
 
             if(!user_id) return res.status(404).json({ message: "User ID Not Found!" })
             

@@ -15,7 +15,7 @@ const fileFilter = (req: any, file: any, cb: any) => {
     if(file.mimetype.startsWith("image/")) {
         cb(null, true)
     }else {
-        cb(new Error("File type not supported!"), false)
+        cb(new Error("File Type Not Supported!"), false)
     }
 }
 

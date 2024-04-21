@@ -11,7 +11,7 @@ export default new class CategoryService {
 
     async addCategory(req: Request, res: Response): Promise<Response>  {
         try{
-            const isAdmin: boolean = res.locals.login_session.isAdmin
+            const isAdmin: boolean = res.locals.login_session.userPayload.isAdmin
 
             if(!isAdmin) return res.status(400).json({ message: "You're Not an Admin!" })
 
@@ -49,7 +49,7 @@ export default new class CategoryService {
         try{
             const thisCategory = await this.CategoryRepo.findMany()
 
-            if(!thisCategory) return res.status(404).json({ message: "Category Not Found!" })
+            if(thisCategory.length === 0) return res.status(404).json({ message: "Category Not Found!" })
 
             return res.status(201).json(thisCategory)
         }catch(err) {
